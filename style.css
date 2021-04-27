@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.text_grey {
+    color: grey;
+}
+
+.container-fluid {
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    background-color: #1e2d3b;
+    overflow: auto;
+}
+
+header {
+    margin: 0;
+    height: 80px;
+    background-color: #2e3a46;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+select {
+    margin: 20px; 
+    padding: 5px;
+}
+
+button {
+    padding: 5px;
+}
+
+header img {
+    height: 60px;
+    margin: 10px;
+}
+
+main {
+    width: 70%;
+    margin: 50px auto;
+}
+
+.row {
+    height: 100%;
+}
+
+.wrapper {
+    padding: 20px;
+}
+
+.card {
+    background-color: #2e3a46;
+    padding: 20px;
+    height: 100%;
+    min-height: 300px;
+    text-align: center;
+    float: left;
+}
+
+.card img {
+    width: 100%;
+    max-width: 300px;
+}
+
+.song_title {
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+    padding-top: 10px;
+}
