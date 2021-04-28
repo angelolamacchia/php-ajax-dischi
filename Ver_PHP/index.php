@@ -1,4 +1,4 @@
-<?php include __DIR__. '/database.php'; ?>
+<?php include __DIR__. '/partials/database.php'; ?> <!--Aggiungo il DB prima dell'HTML-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,15 +19,16 @@
 
         <main>
             <div class="row"> 
-                <?php foreach($database as $element) { ?>
+                <!--Includo la card in un ciclo per stampare tramite php-->
+                <?php foreach($database as $album) { ?> 
                 <div class="wrapper col-lg-3 col-md-6 col-sm-12">
                     <div class="card"> 
-                        <img src="<?php echo $element['poster'] ?>">
+                        <img src="<?php echo $album['poster'] ?>">
                         <div class="song_title">
-                            <?php echo $element['title'] ?>
+                            <?php echo $album['title'] ?>
                         </div> 
-                        <div class="artist text_grey"><?php echo $element['author'] ?></div>
-                        <div class="year text_grey"><?php echo $element['year'] ?></div>
+                        <div class="artist text_grey"><?php echo $album['author'] ?></div>
+                        <div class="year text_grey"><?php echo $album['year'] ?></div>
                     </div>
                 </div>
                 <?php } ?>

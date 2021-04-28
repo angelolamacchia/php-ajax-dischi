@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <title>Dischi</title>
+</head>
+<body>
+    <div class="container-fluid" id="app">
+        <header>
+            <img src="img/Spotify_logo.png">
+
+            <div class="buttons">
+                <button @click="orderSongs">Ordina le canzoni per anno</button>
+
+                <select class="form-select" v-model="selected" >
+                    <option></option>
+                    <option v-for="artist in songsArtist">{{artist}}</option>
+                </select>
+            </div>
+            
+        </header>
+
+        <main>
+            <div class="row"> <!-- modifico la classe active al cambiamento del select -->
+                <div class="wrapper col-lg-3 col-md-6 col-sm-12" v-for="song in songs" 
+                :class=" selected == '' ? 'active' : selected == song.author ? 'active' : 'notActive' ">
+                    <div class="card"> 
+                        <img :src="song.poster">
+                        <div class="song_title">
+                            {{song.title}}
+                        </div>
+                        <div class="artist text_grey">{{song.author}}</div>
+                        <div class="year text_grey">{{song.year}}</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+
+    <script src="js/master.js"></script>
+</body>
+</html>
