@@ -9,9 +9,12 @@ var app = new Vue ({
 
     mounted() {
         axios
-        .get("http://localhost:8888/php-ajax-dischi/Ver_PHP/partials/server.php")
+        //la chiamata get è dinamica
+        .get(window.location.protocol + '//' + window.location.hostname + ':' + window.location.port + '/php-ajax-dischi/Ver_PHP/partials/server.php')
+        // .get("http://localhost:8888/php-ajax-dischi/Ver_PHP/partials/server.php")
         .then( (result) => {
-            console.log(result.data);
+            // console.log(result.data);
+
             this.songs = result.data;
 
             this.songs.forEach((element, index) => {
@@ -22,13 +25,24 @@ var app = new Vue ({
                 }; 
             });
            
-        });  
+        }); 
+        
     },
 
     methods: {
         orderSongs() {
             //funzione per ordinare le canzoni
             this.songs.sort( (a,b)=>(parseInt(a.year) < parseInt(b.year) ) ? -1:1);
+        },
+
+        listAuthors() {
+            axios
+            .get(window.location.protocol + '//' + window.location.hostname + ':' + window.location.port + '/php-ajax-dischi/Ver_PHP/partials/server.php')
+            .then((result) => {
+                console.log(result);
+            });
         }
+
+
     }
 });
