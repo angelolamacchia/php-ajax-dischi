@@ -11,20 +11,9 @@ var app = new Vue ({
         axios
         //la chiamata get è dinamica
         .get(window.location.protocol + '//' + window.location.hostname + ':' + window.location.port + '/php-ajax-dischi/Ver_PHP/partials/server.php')
-        // .get("http://localhost:8888/php-ajax-dischi/Ver_PHP/partials/server.php")
         .then( (result) => {
-            // console.log(result.data);
 
             this.songs = result.data;
-
-            // this.songs.forEach((element, index) => {
-
-            //     //popolo l'array con i generi delle canzoni
-            //     if (!this.songsArtist.includes(element.author)) {
-            //         this.songsArtist.push(element.author);
-            //     }; 
-            // });
-           
         }); 
         
     },
@@ -36,10 +25,10 @@ var app = new Vue ({
         },
 
         getAuthors() {
+            //chiamata per gli autori
             axios
             .get(window.location.protocol + '//' + window.location.hostname + ':' + window.location.port + '/php-ajax-dischi/Ver_PHP/partials/server.php?listAuthor=true')
             .then((result) => {
-                console.log(result.data);
 
                 this.songsArtist = result.data;
             });
