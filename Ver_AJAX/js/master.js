@@ -9,7 +9,7 @@ var app = new Vue ({
 
     mounted() {
         axios
-        //la chiamata get è dinamica
+        //chiamata get dinamica
         .get(window.location.protocol + '//' + window.location.hostname + ':' + window.location.port + '/php-ajax-dischi/Ver_PHP/partials/server.php')
         .then( (result) => {
 
