@@ -17,13 +17,13 @@ var app = new Vue ({
 
             this.songs = result.data;
 
-            this.songs.forEach((element, index) => {
+            // this.songs.forEach((element, index) => {
 
-                //popolo l'array con i generi delle canzoni
-                if (!this.songsArtist.includes(element.author)) {
-                    this.songsArtist.push(element.author);
-                }; 
-            });
+            //     //popolo l'array con i generi delle canzoni
+            //     if (!this.songsArtist.includes(element.author)) {
+            //         this.songsArtist.push(element.author);
+            //     }; 
+            // });
            
         }); 
         
@@ -35,11 +35,13 @@ var app = new Vue ({
             this.songs.sort( (a,b)=>(parseInt(a.year) < parseInt(b.year) ) ? -1:1);
         },
 
-        listAuthors() {
+        getAuthors() {
             axios
-            .get(window.location.protocol + '//' + window.location.hostname + ':' + window.location.port + '/php-ajax-dischi/Ver_PHP/partials/server.php')
+            .get(window.location.protocol + '//' + window.location.hostname + ':' + window.location.port + '/php-ajax-dischi/Ver_PHP/partials/server.php?listAuthor=true')
             .then((result) => {
-                console.log(result);
+                console.log(result.data);
+
+                this.songsArtist = result.data;
             });
         }
 

@@ -20,7 +20,7 @@
             <div class="buttons">
                 <button @click="orderSongs">Ordina le canzoni per anno</button>
 
-                <select class="form-select" v-model="selected" >
+                <select class="form-select" v-model="selected" @click='getAuthors'>
                     <option></option>
                     <option v-for="artist in songsArtist">{{artist}}</option>
                 </select>
